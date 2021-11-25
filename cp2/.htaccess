@@ -1,0 +1,2 @@
+# Gestion des erreurs système
+ErrorDocument 404 /arpajon/cp2/error/404.html
