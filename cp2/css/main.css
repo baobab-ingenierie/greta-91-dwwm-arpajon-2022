@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+/* REMISE A ZERO DE TOUTES LES PROPIETES STANDARDS */
+* {
+    margin: 0;    
+    padding: 0;
+    border: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* INDEX - HEADER */
+#subheader {
+    display: flex;
+    align-items: center;
+}
+
+#logo, #flag {
+    width: 15vw;
+}
+
+#title {
+    width: 70vw;
+    text-align: center;
+    font-family: Acme, sans-serif;
+    font-size: 3em;
+}
+
+/* INDEX - MENU */
+#menu {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#menu a {
+    background-color: #6495ed;
+    color: #fff;
+    border: solid .25rem #fff;
+    box-shadow: 0 0 1rem #555;
+    padding: .5rem;
+    border-radius: 1rem 0;
+    width: 20vw;
+    display: inline-block;
+    transition: all 1s ease-in-out .25s;
+}
+
+#menu a:hover {
+    background-color: #fff;
+    color: #6495ed;
+    border: solid .25rem #6495ed;
+    /* filter: invert();     */
+}
+
+
+
+
+

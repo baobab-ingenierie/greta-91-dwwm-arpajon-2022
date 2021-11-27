@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Space+Mono:ital,wght@0,400;1,700&display=swap');
 
+@font-face {
+    font-family: 'Ma police';
+    src: url('../fonts/1942.ttf') format('truetype')
+}
+
 /* SELECTEURS DE BASE */
 html, body {
     width: 100%;
@@ -14,8 +19,8 @@ body {
     background-color: hsla(60,50%,50%,.45);
     background-color: #7d5760; */
     background-color: #7d57607f;
-    background: linear-gradient(#52d78a, #1255aa);
-    background: radial-gradient(#52d78a, #def);
+    /* background: linear-gradient(#52d78a, #1255aa); */
+    background: url('../pics/cup.png') no-repeat fixed center right, url('../pics/keyboard.png') no-repeat 100% 85%, radial-gradient(#52d78a, #def);
 }
 
 * {
@@ -28,7 +33,11 @@ body {
 }
 
 h1,h2,h3,h4 {
-    font-family: Pacifico, serif;
+    font-family: Pacifico, serif; /* Fonte distante venant d'un CDN */
+}
+
+h1 {
+    font-family: 'Ma police', monospace; /* Fonte locale */
 }
 
 pre {
