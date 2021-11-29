@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
 
+/* ANIMATIONS */
+@keyframes beating_heart {
+    25% {
+        color: #a52a2a;
+        font-size: 1.1em;
+        letter-spacing: .25em;
+    }
+    50% {
+        color: #dc143c;
+        font-size: 1.2em;
+        letter-spacing: .5em;
+    }
+    100% {
+        color: #f00;
+        font-size: 1.3em;
+        letter-spacing: .75em;
+    }
+}
+
 /* REMISE A ZERO DE TOUTES LES PROPIETES STANDARDS */
 * {
     margin: 0;    
@@ -25,6 +44,14 @@
     text-align: center;
     font-family: Acme, sans-serif;
     font-size: 3em;
+    animation-name: beating_heart;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-iteration-count: 4;
+    animation-play-state: running;
+    animation-fill-mode: both;
+    animation-delay: 0;
+    animation-direction: normal;
 }
 
 /* INDEX - MENU */
@@ -53,7 +80,30 @@
     /* filter: invert();     */
 }
 
+/* INDEX - CAROUSEL */
+#carousel {
+    width: 80vw;
+    height: 25vh;
+    margin: 5vh auto;
+    position: relative;
+}
 
+#carousel * {
+    position: absolute;
+}
 
+#carousel .slide {
+    width: 100%;
+    height: 100%;
+}
 
+#left, #right {
+    height: 100%;
+    width: 10%;
+    background-color: #fff5;
+    z-index: 999;
+}
 
+#right {
+    right: 0;
+}

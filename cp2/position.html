@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démo - Position</title>
+    <style>
+        body {
+            height: 200vh;
+        }
+
+        #box1 {
+            background-color: #f00;
+            top:50px;
+            left: 50px;
+        }
+
+        #box2 {
+            background-color: #0f0;
+            position: relative;
+            top:50px;
+            left: 50px;
+            z-index: 11;
+
+        }
+
+        #subbox1 {
+            background-color: #2f6;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        #box3 {
+            background-color: #f0f;
+            position: absolute;
+            bottom:50px;
+            right: 50px;
+        }
+
+        #box4 {
+            background-color: #ff0;
+            position: fixed;
+            bottom:50px;
+            left: 50px;
+            z-index: 9;
+        }
+
+        #box5 {
+            background-color: #0ff;
+            position: sticky;
+            top: 100px;
+            z-index: 10;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            border: #000 solid 5px;
+        }
+
+        .subbox {
+            width: 50px;
+            height: 50px;
+            border: #000 solid 2.5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1" class="box">1 - Static
+    </div>
+    <div id="box2" class="box">2 - Relative
+    </div>
+    <div id="box3" class="box">3 - Absolute
+    </div>
+    <div id="box4" class="box">4 - Fixed
+    </div>
+    <div id="box5" class="box">5 - Sticky
+        <div class="subbox" id="subbox1">Absolute</div>
+    </div>
+</body>
+</html>
