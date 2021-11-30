@@ -1,2 +1,6 @@
 # Gestion des erreurs système
 ErrorDocument 404 /arpajon/cp2/error/404.html
+ErrorDocument 403 /arpajon/cp2/error/403.html
+
+# Interdire la visibilité des fichiers dans tous les dossiers
+Options All -Indexes

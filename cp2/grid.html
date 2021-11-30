@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS : Grid layout</title>
+    <style>
+        /* GRID LAYOUT */
+        #wrapper {
+            display: grid;
+            min-height: 100vh;
+            grid-template-columns: 30vw auto 20vw;
+            grid-template-rows: 10vh 10vh auto 20vh;
+            gap: .25rem;
+        }
+
+        header {
+            background-color: #f00;
+            grid-row: 1;
+            grid-column: span 3;
+        }
+
+        nav {
+            background-color: #0f0;
+            grid-row: 2;
+            grid-column: span 3;
+        }
+
+        main {
+            background-color: #00f;
+            grid-row: 3;
+            grid-column: span 2;
+        }
+
+        aside {
+            background-color: #f0f;
+            grid-row: 3;
+            grid-column: 3;
+        }
+
+        footer {
+            background-color: #ff0;
+            grid-row: 4;
+            grid-column: span 3;
+}
+
+        #wrapper {
+            background-color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <footer>PIED DE PAGE</footer>
+        <main>CONTENU PRINCIPAL</main>
+        <nav>MENU VERTICAL</nav>
+        <aside>BARRE LATERALE</aside>
+        <header>EN-TETE</header>
+    </div>
+</body>
+
+</html>
