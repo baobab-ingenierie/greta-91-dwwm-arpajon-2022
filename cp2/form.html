@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arpaj : Candidature</title>
+    <!-- <link rel="stylesheet" href="css/main.css" media="screen"> -->
+</head>
+
+<body>
+    <h1>Formulaire de candidature</h1>
+
+    <form action="form.php" method="post" name="candidate">
+        <fieldset>
+            <legend>Données personnelles</legend>
+            <div>
+                <label for="fname">Prénom </label><input type="text" id="fname" name="fname"
+                    placeholder="Saisir seulement le prénom" minlength="1" maxlength="30" autocomplete="off"
+                    pattern="[a-zA-Z\u00c0-\u00ff \-]{1,30}" title="Caractères alphabétiques uniquement" required>
+            </div>
+            <div>
+                <label for="mail">Courriel </label>
+                <input type="email" name="mail" id="mail">
+            </div>
+            <div>
+                <label for="dob">Date de naissance </label>
+                <input type="date" name="dob" id="dob">
+            </div>
+            <fieldset>
+                <legend>Sexe</legend>
+                <div>
+                    <input type="radio" name="sex" id="sex_f" value="F"><label for="sex_f"> Féminin</label>
+                    <input type="radio" name="sex" id="sex_m" value="M"><label for="sex_m"> Masculin</label>
+                    <input type="radio" name="sex" id="sex_a" value="A"><label for="sex_a"> Autre</label>
+                </div>
+            </fieldset>
+            <div>
+                <label for="region">Région </label>
+                <select name="region" id="region">
+                    <option value="">--- Sélectionner une région ---</option>
+                    <optgroup label="France">
+                        <option value="IDF">Ile-de-France</option>
+                        <option value="PACA">Provence Alpes Côte d'Azur</option>
+                        <option value="OCC">Occitanie</option>
+                    </optgroup>
+                    <optgroup label="Italie">
+                        <option value="LBD">Lombardie</option>
+                        <option value="SCL">Sicile</option>
+                    </optgroup>
+                </select>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Candidature</legend>
+            <div>
+                <label for="exp">Années d'expérience </label>
+                <input type="number" name="exp" id="exp" min="1" max="50" step="2" value="1">
+            </div>
+            <div>
+                <label for="salary">Prétentions salariales </label>
+                <input type="range" name="salary" id="salary" min="24000" max="96000" step="1000" value="36000">
+            </div>
+        </fieldset>
+        <input type="submit">
+    </form>
+</body>
+
+</html>
