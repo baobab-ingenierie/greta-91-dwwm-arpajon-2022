@@ -1,0 +1,4 @@
+/* Feuille de styles pour l'imprimante */
+#flag, #navbar, #carousel, #footer, #video, #notice, .card img, .card a {
+    display: none;
+}

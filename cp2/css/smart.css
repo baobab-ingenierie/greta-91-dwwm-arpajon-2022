@@ -8,10 +8,56 @@
 5. #footer : passer les éléments à la ligne et passer les bordures pointillées dessous
 */
 
+/* DIRECTIVE 1 */
 #notice {
     width: 80vw;
     height: 80vh;
     bottom: 8vh;
     left: 8vw;
     padding: 1vh 1vw;
+}
+
+/* DIRECTIVE 2 */
+#subheader {
+    flex-wrap: wrap;
+}
+
+#subheader>* {
+    width: 100%;
+}
+
+#title {
+    animation: none;
+}
+
+#flag {
+    display: none;
+}
+
+/* DIRECTIVE 3 */
+#menu a {
+    margin: .5rem;
+}
+
+/* DIRECTIVE 4 */
+#carousel {
+    height: 45vw;
+}
+
+#left, #right {
+    display: none;
+}
+
+/* DIRECTIVE 5 */
+#footer {
+    flex-direction: column;
+}
+
+#footer ul {
+    width: 95%;
+}
+
+#footer ul:not(:last-of-type) {
+    border: none;
+    border-bottom: #fff .25em dotted;
 }
