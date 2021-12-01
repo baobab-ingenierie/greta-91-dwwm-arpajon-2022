@@ -1,0 +1,17 @@
+/* INDEX - RESPONSIVE */
+
+/*
+1. #notice : couvrir tout l'écran
+2. #logo : placer au sommet du doc suivi du #title sans animation + cacher #flag
+3. #menu : ajouter marge top/bottom
+4. #carousel : revoir les proportions
+5. #footer : passer les éléments à la ligne et passer les bordures pointillées dessous
+*/
+
+#notice {
+    width: 80vw;
+    height: 80vh;
+    bottom: 8vh;
+    left: 8vw;
+    padding: 1vh 1vw;
+}

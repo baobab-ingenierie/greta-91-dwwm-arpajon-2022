@@ -31,6 +31,21 @@
     }
 }
 
+/* MEDIA QUERIES */
+@media screen and (max-width: 600px) {
+    .back {
+        background: linear-gradient(#00f, #0f0);
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .back {
+        background: url('../pics/back.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+    }
+}
+
 /* REMISE A ZERO DE TOUTES LES PROPIETES STANDARDS */
 * {
     margin: 0;    
@@ -43,12 +58,6 @@
 
 body {
     min-height: 100vh;
-}
-
-.back {
-    background: url('../pics/back.jpg');
-    background-size: cover;
-    background-attachment: fixed;
 }
 
 #wrapper {
@@ -160,7 +169,8 @@ body {
 }
 
 .card {
-    width: 20vw;
+    /* width: 20vw; */
+    width: 20rem;
     text-align: center;
     background-color: #fff;
     margin: 1rem 0;
@@ -242,10 +252,3 @@ body {
 #video1 {
     width: 100%;
 }
-
-
-
-
-
-
-
