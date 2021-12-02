@@ -64,6 +64,10 @@ body {
     background-color: #fffa;
 }
 
+h1 {
+    text-align: center;
+}
+
 /* INDEX - HEADER */
 #subheader {
     display: flex;
@@ -72,6 +76,11 @@ body {
 
 #logo, #flag {
     width: 15vw;
+    transition: 2s;
+}
+
+#logo:hover {
+    transform: rotate(360deg);
 }
 
 #title {
@@ -175,6 +184,12 @@ body {
     background-color: #fff;
     margin: 1rem 0;
     border-radius: 1em;
+    transition: 2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 1rem #333;
 }
 
 .card p {
@@ -251,4 +266,73 @@ body {
 
 #video1 {
     width: 100%;
+}
+
+/* FORMULAIRE */
+form {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+form div {
+    margin: .25rem 0;
+}
+
+form>fieldset>div>label {
+    display: inline-block;
+    width: calc(100%*1/3);
+    text-align: right;
+}
+
+form>fieldset>div>[name] {
+    width: 25rem;
+}
+
+form>fieldset>div>label::after {
+    content: ' : ';
+}
+
+form [name] {
+    border-radius: .25rem;
+}
+
+form [name]:focus {
+    box-shadow: 0 0 1rem #00f;
+}
+
+form [name]:invalid {
+    background: rgba(221, 104, 104, 0.705);
+}
+
+fieldset, form [name] {
+    border: solid #555 .1rem;
+}
+
+form, fieldset {
+    padding: 1rem;
+}
+
+[type=submit], button {
+    border: solid #555 .1rem;
+    border-radius: .25rem;
+    padding: .25rem;
+    background: #aaa;
+}
+
+#mode {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+/* FORM - DARK MODE */
+.dark {
+    background-color: #000080;
+    color: #fff;
+    transition: 3s;
+}
+
+.light {
+    background-color: #fff;
+    color: #000;
+    transition: 3s;
 }

@@ -6,13 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arpaj : Candidature</title>
-    <!-- <link rel="stylesheet" href="css/main.css" media="screen"> -->
+    <link rel="stylesheet" href="css/main.css" media="screen">
 </head>
 
 <body>
     <h1>Formulaire de candidature</h1>
 
-    <form action="form.php" method="post" name="candidate">
+    <nav id="mode">
+        <button onclick="body.className='light';">Light mode</button>
+        <button onclick="body.className='dark';">Dark mode</button>
+    </nav>
+
+    <form action="form.php" method="post" name="candidate" enctype="multipart/form-data">
         <fieldset>
             <legend>Données personnelles</legend>
             <div>
@@ -60,7 +65,54 @@
             </div>
             <div>
                 <label for="salary">Prétentions salariales </label>
-                <input type="range" name="salary" id="salary" min="24000" max="96000" step="1000" value="36000">
+                <input type="range" name="salary" id="salary" min="24000" max="96000" step="1000" value="36000" onchange="document.getElementById('salVal').textContent=this.value;"><span id="salVal"></span>
+            </div>
+            <fieldset>
+                <legend>Postes souhaités</legend>
+                <div>
+                    <input type="checkbox" name="jobs[]" id="job1" value="FRONT"><label for="job1"> Développeur.se web
+                        front-end</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="jobs[]" id="job2" value="BACK"><label for="job2"> Développeur.se web
+                        back-end</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="jobs[]" id="job3" value="FULL"><label for="job3"> Développeur.se web
+                        full-stack</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="jobs[]" id="job4" value="PROJ"><label for="job4"> Chef de
+                        projets</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="jobs[]" id="job5" value="DBA"><label for="job5"> Administrateur de
+                        bases de données</label>
+                </div>
+            </fieldset>
+            <div>
+                <label for="skill">Principale compétence </label>
+                <input type="text" name="skill" id="skill" list="suggest">
+                <datalist id="suggest">
+                    <option value="Prise de parole en public">
+                    <option value="Gestion de groupe">
+                    <option value="Management de projets">
+                    <option value="Self control">
+                    <option value="Rigueur et ponctualité">
+                </datalist>
+            </div>
+            <div>
+                <label for="color">Couleur préférée </label>
+                <input type="color" name="color" id="color">
+            </div>
+            <div>
+                <label for="cv">Dépôt du CV </label>   
+                <input type="file" id="cv" name="cv" accept="application/pdf, application/docx, application/odt" title="Taille maximale autorisée : 2Mo">
+                <input type="hidden" name="MAX_FILE_SIZE" value="2097152">
+            </div>
+            <div>
+                <label for="rem">Remarques </label>
+                <textarea name="rem" id="rem" cols="30" rows="10"></textarea>
             </div>
         </fieldset>
         <input type="submit">
