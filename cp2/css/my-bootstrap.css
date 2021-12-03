@@ -1,0 +1,4 @@
+/* Feuille de styles qui surcharge celle de Bootstrap */
+.jumbotron {
+    background: url('../pics/back.jpg');
+}
