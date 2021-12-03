@@ -1,4 +1,10 @@
 /* Feuille de styles qui surcharge celle de Bootstrap */
 .jumbotron {
     background: url('../pics/back.jpg');
+    background-size: cover;
+    color: #fff;
+}
+
+.navbar-brand > img {
+    height: 2rem;
 }

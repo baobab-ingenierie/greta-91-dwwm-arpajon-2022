@@ -12,11 +12,147 @@
 </head>
 
 <body class="container">
+    <!-- En-tête -->
     <div class="jumbotron mt-3">
         <h1 class="display-4">Japra v9.0</h1>
-        <p class="lead">Japra est une application qui permet de gérer l'assiduité des élèves à suivre les cours programmés. Dans sa nouvelle version, Japra sait envoyer un courriel aux élèves absents pour les relancer. Japra sait aussi compiler les notes obtenues par les éléves et les afficher sous la forme de tableaux de synthèse ou de graphiques.</p>
+        <p class="lead">Japra est une application qui permet de gérer l'assiduité des élèves à suivre les cours
+            programmés. Dans sa nouvelle version, Japra sait envoyer un courriel aux élèves absents pour les relancer.
+            Japra sait aussi compiler les notes obtenues par les éléves et les afficher sous la forme de tableaux de
+            synthèse ou de graphiques.</p>
         <a href="index.html#team" class="btn btn-primary">Rencontrer les développeurs</a>
     </div>
+
+    <!-- Boîte d'alerte -->
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>Attention !</strong> Ce site enregistre vos données personnelles dans des cookies.<button type="button"
+            class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+
+    <!-- barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top">
+        <a href="index.html" class="navbar-brand"><img src="pics/logo.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar"
+            aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a href="team.html" class="nav-link">L'équipe</a></li>
+                <li class="nav-item"><a href="form.html" class="nav-link">Candidature</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-expanded="false">Technologies</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="demo_grid.html">Grid layout</a>
+                        <a class="dropdown-item" href="demo_position.html">Positions CSS</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="demo_video.html">IFrame et Vidéo</a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Chercher" aria-label="Search">
+                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Chercher</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Fil d'ariane -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="#">Nos réalisation</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Japra v9.0</li>
+        </ol>
+    </nav>
+
+    <!-- Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="pics/slide1.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/slide2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="pics/slide3.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </button>
+    </div>
+
+    <!-- Cards -->
+    <section id="cards" class="d-flex flex-wrap justify-content-around">
+        <div class="card my-3" style="width: 20rem;">
+            <img src="pics/faces/face1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Waya</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur repellat omnis quibusdam temporibus aut sed neque impedit cumque veritatis sint, quas nemo doloremque. Corrupti consequuntur corporis at iste odit sit!</p>
+                <a href="#" class="btn btn-primary">Détails</a>
+            </div>
+        </div>
+        <div class="card my-3" style="width: 20rem;">
+            <img src="pics/faces/face1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Waya</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur repellat omnis quibusdam temporibus aut sed neque impedit cumque veritatis sint, quas nemo doloremque. Corrupti consequuntur corporis at iste odit sit!</p>
+                <a href="#" class="btn btn-primary">Détails</a>
+            </div>
+        </div>
+        <div class="card my-3" style="width: 20rem;">
+            <img src="pics/faces/face1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Waya</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur repellat omnis quibusdam temporibus aut sed neque impedit cumque veritatis sint, quas nemo doloremque. Corrupti consequuntur corporis at iste odit sit!</p>
+                <a href="#" class="btn btn-primary">Détails</a>
+            </div>
+        </div>
+        <div class="card my-3" style="width: 20rem;">
+            <img src="pics/faces/face1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Waya</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur repellat omnis quibusdam temporibus aut sed neque impedit cumque veritatis sint, quas nemo doloremque. Corrupti consequuntur corporis at iste odit sit!</p>
+                <a href="#" class="btn btn-primary">Détails</a>
+            </div>
+        </div>
+        <div class="card my-3" style="width: 20rem;">
+            <img src="pics/faces/face1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Waya</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur repellat omnis quibusdam temporibus aut sed neque impedit cumque veritatis sint, quas nemo doloremque. Corrupti consequuntur corporis at iste odit sit!</p>
+                <a href="#" class="btn btn-primary">Détails</a>
+            </div>
+        </div>
+        <div class="card my-3" style="width: 20rem;">
+            <img src="pics/faces/face1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Waya</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur repellat omnis quibusdam temporibus aut sed neque impedit cumque veritatis sint, quas nemo doloremque. Corrupti consequuntur corporis at iste odit sit!</p>
+                <a href="#" class="btn btn-primary">Détails</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
