@@ -52,15 +52,50 @@ CREATE TABLE arpajon.teachers(
 ENGINE=InnoDB
 ;
 
+-- Création de la table COURSES
+-- Préfixes pour les contraintes :
+-- Clé primaire : PK
+-- Clé étrangère : FK
+-- Unique : UQ
+-- Check : CK
+-- Not null : NN
+-- Default : DF
+CREATE TABLE arpajon.courses(
+	-- Colonnes
+    id_cur CHAR(5),
+    title VARCHAR(255),
+    coeff TINYINT,
+    id_teach TINYINT,
+    book MEDIUMBLOB,
+    -- Contraintes
+    CONSTRAINT pk_courses PRIMARY KEY (id_cur),
+    CONSTRAINT nn_courses_title CHECK (title IS NOT NULL), -- simule NOT NULL via CHECK
+    CONSTRAINT ck_courses_coeff CHECK (coeff BETWEEN 1 AND 12),
+    CONSTRAINT fk_courses_teachers FOREIGN KEY (id_teach) 
+		REFERENCES arpajon.teachers(id_teach)
+)
+ENGINE=InnoDB
+;
+
+-- Création de la table FOLLOWS
+-- id_stud TINYINT + FK de la table STUDENTS
+-- id_cur CHAR(5) + FK de la table COURSES
+-- score TINYINT + CK (entre 1 et 20)
+-- PK sur id_stud et id_cur
+CREATE TABLE follow(
+	-- Colonnes
+	id_stud TINYINT,
+    id_cur CHAR(5),
+    score TINYINT,
+    -- Contraintes
+    CONSTRAINT fk_follow_students FOREIGN KEY (id_stud) 
+		REFERENCES arpajon.students(id_stud),
+	CONSTRAINT fk_follow_courses FOREIGN KEY (id_cur) 
+		REFERENCES arpajon.courses(id_cur),
+	CONSTRAINT pk_follow PRIMARY KEY (id_stud, id_cur),
+    CONSTRAINT ck_follow_score CHECK (score BETWEEN 1 AND 20)
+) ENGINE=InnoDB;
+
 -- Vérif création tables
 SHOW TABLES
 ;
-
-
-
-
-
-
-
-
-
