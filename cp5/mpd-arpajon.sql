@@ -4,6 +4,8 @@ DROP DATABASE IF EXISTS arpajon
 
 -- Création de la BDD arpajon
 CREATE DATABASE arpajon
+	CHARACTER SET utf8mb4
+	COLLATE utf8mb4_general_ci
 ;
 
 -- Vérif création BDD
