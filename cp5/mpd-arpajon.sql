@@ -32,13 +32,25 @@ CHARACTER SET utf8mb4
 COLLATE utf8mb4_general_ci
 ;
 
+-- Suppression de la table si elle existe
+DROP TABLE IF EXISTS arpajon.teachers
+;
+
 -- Création de la table TEACHERS
 -- id_teach TINYINT PK AI
 -- fname VARCHAR NN
 -- grade TINYINT (valeur entre 1 et 5)
--- begin DATE
+-- dos DATE
 -- email VARCHAR UQ
-
+CREATE TABLE arpajon.teachers(
+	id_teach TINYINT PRIMARY KEY AUTO_INCREMENT,
+	fname VARCHAR(30) NOT NULL,
+    grade TINYINT CHECK (grade BETWEEN 1 AND 5),
+    dos DATE,
+    email VARCHAR(100) UNIQUE
+)
+ENGINE=InnoDB
+;
 
 -- Vérif création tables
 SHOW TABLES
