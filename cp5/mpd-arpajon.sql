@@ -32,6 +32,11 @@ CHARACTER SET utf8mb4
 COLLATE utf8mb4_general_ci
 ;
 
+-- Création index sur la colonne FNAME de la table STUDENTS
+CREATE INDEX idx_students_fname
+	ON arpajon.students (fname)
+;
+
 -- Suppression de la table si elle existe
 DROP TABLE IF EXISTS arpajon.teachers
 ;
@@ -82,7 +87,7 @@ ENGINE=InnoDB
 -- id_cur CHAR(5) + FK de la table COURSES
 -- score TINYINT + CK (entre 1 et 20)
 -- PK sur id_stud et id_cur
-CREATE TABLE follow(
+CREATE TABLE arpajon.follow(
 	-- Colonnes
 	id_stud TINYINT,
     id_cur CHAR(5),
@@ -94,7 +99,15 @@ CREATE TABLE follow(
 		REFERENCES arpajon.courses(id_cur),
 	CONSTRAINT pk_follow PRIMARY KEY (id_stud, id_cur),
     CONSTRAINT ck_follow_score CHECK (score BETWEEN 1 AND 20)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB
+;
+
+-- Modification de la table STUDENTS pour ajout de colonne
+ALTER TABLE arpajon.students
+	ADD COLUMN tel VARCHAR(15),
+    ADD CONSTRAINT uq_students_tel UNIQUE (tel),
+    MODIFY COLUMN fname VARCHAR(40)
+;
 
 -- Vérif création tables
 SHOW TABLES
