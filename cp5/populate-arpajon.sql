@@ -1,6 +1,12 @@
 USE arpajon
 ;
 
+-- Suppression de toutes les lignes dans STUDENTS avant ajout
+DELETE 
+FROM arpajon.students
+WHERE id_stud > 0 -- pour passer le mode safe
+;
+
 -- Ajout de lignes dans la table STUDENTS
 -- Méthode SQL standard
 INSERT INTO arpajon.students(id_stud, fname, dob, sex, tel)
@@ -20,7 +26,7 @@ VALUES(4, 'Adil', '1998-02-01', 'M', '07 22 54 89 71')
 ;
 
 INSERT INTO arpajon.students(id_stud, fname, dob, sex, tel)
-VALUES(5, 'Arnaud', '1994-07-12', 'M', '07 12 54 89 71')
+VALUES(5, 'Arnaud', '1994-07-12', 'M', '07 55 61 45 71')
 ;
 
 INSERT INTO arpajon.students(id_stud, fname, dob, sex, tel)
@@ -61,4 +67,24 @@ VALUES(14, 'Kamel', '2002-10-06', 'M', '07 11 54 22 99')
 
 INSERT INTO arpajon.students(id_stud, fname, dob, sex, tel)
 VALUES(15, 'Xavier', '1993-12-10', 'M', '06 00 00 00 00')
+;
+
+-- Check de l'ajout des lignes
+SELECT *
+FROM arpajon.students
+;
+
+-- Ajout de lignes dans la table TEACHERS
+-- Méthode MySQL/MariaDB
+INSERT INTO arpajon.teachers(id_teach, fname, grade, dos) 
+VALUES 
+	(1, 'Nadjet', null, '2020-09-15'),
+   	(2, 'Martin', null, '2021-10-20'),
+	(3, 'Saman', null, '2021-03-11'),
+	(4, 'Lesly', 4, '1994-04-05')
+;
+
+-- Check de l'ajout des lignes
+SELECT *
+FROM arpajon.teachers
 ;
