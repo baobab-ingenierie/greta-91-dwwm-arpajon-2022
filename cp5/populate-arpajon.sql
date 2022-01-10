@@ -116,15 +116,54 @@ FROM arpajon.teachers
 ;
 
 -- Ajout de lignes dans la table COURSES
--- Import via la requête LOAD
+-- Mettre le fichier à importer dans le dossier indiqué par la paramètre "secure_file_priv"
+-- Sinon ouvrir le fichier "my.ini" et aller à la rubrique "[mysqld]"
+-- Ajouter le paramètre (exemple : secure_file_priv="/apps/uwamp/www/arpajon/cp5"
+-- Sauvegarder et redémarrer le serveur
+SHOW VARIABLES
+LIKE '%SECURE%'
+;
+
+-- Import via la requête LOAD DATA dans COURSES
+DELETE 
+FROM arpajon.courses
+;
+
 LOAD DATA 
 	INFILE '/apps/uwamp/www/arpajon/cp5/table-courses.csv' 
     INTO TABLE arpajon.courses
 	FIELDS TERMINATED BY ';'
+    ENCLOSED BY '"'
+    LINES TERMINATED BY '\r\n'
     IGNORE 1 LINES
 ;
 
+INSERT INTO courses(id_cur, title, coeff)
+VALUES('ENG', 'Anglais', 1)
+;
 
+UPDATE arpajon.courses
+SET book = null
+;
 
+SELECT * 
+FROM arpajon.courses
+;
 
+-- Import via la requête LOAD DATA dans FOLLOW
+DELETE 
+FROM arpajon.follow
+;
 
+LOAD DATA 
+	INFILE '/apps/uwamp/www/arpajon/cp5/table-follow.csv' 
+    INTO TABLE arpajon.follow
+	FIELDS TERMINATED BY ';'
+    ENCLOSED BY '"'
+    LINES TERMINATED BY '\r\n'
+    IGNORE 1 LINES
+;
+
+SELECT * 
+FROM arpajon.follow
+;
