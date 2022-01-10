@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 10 jan. 2022 à 18:16
+-- Généré le : lun. 10 jan. 2022 à 21:11
 -- Version du serveur :  8.0.22
 -- Version de PHP : 7.2.7
 
@@ -30,12 +30,14 @@ USE `arpajon`;
 --
 
 DROP TABLE IF EXISTS `courses`;
-CREATE TABLE `courses` (
+CREATE TABLE IF NOT EXISTS `courses` (
   `id_cur` char(5) COLLATE utf8mb4_general_ci NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `coeff` tinyint DEFAULT NULL,
   `id_teach` tinyint DEFAULT NULL,
-  `book` mediumblob
+  `book` mediumblob,
+  PRIMARY KEY (`id_cur`),
+  KEY `fk_courses_teachers` (`id_teach`)
 ) ;
 
 --
@@ -62,10 +64,12 @@ INSERT INTO `courses` (`id_cur`, `title`, `coeff`, `id_teach`, `book`) VALUES
 --
 
 DROP TABLE IF EXISTS `follow`;
-CREATE TABLE `follow` (
+CREATE TABLE IF NOT EXISTS `follow` (
   `id_stud` tinyint NOT NULL,
   `id_cur` char(5) COLLATE utf8mb4_general_ci NOT NULL,
-  `score` tinyint DEFAULT NULL
+  `score` tinyint DEFAULT NULL,
+  PRIMARY KEY (`id_stud`,`id_cur`),
+  KEY `fk_follow_courses` (`id_cur`)
 ) ;
 
 --
@@ -246,13 +250,16 @@ INSERT INTO `follow` (`id_stud`, `id_cur`, `score`) VALUES
 --
 
 DROP TABLE IF EXISTS `students`;
-CREATE TABLE `students` (
-  `id_stud` tinyint NOT NULL,
+CREATE TABLE IF NOT EXISTS `students` (
+  `id_stud` tinyint NOT NULL AUTO_INCREMENT,
   `fname` varchar(40) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `dob` date DEFAULT NULL,
   `sex` enum('F','M') COLLATE utf8mb4_general_ci NOT NULL,
-  `tel` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `tel` varchar(15) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id_stud`),
+  UNIQUE KEY `uq_students_tel` (`tel`),
+  KEY `idx_students_fname` (`fname`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `students`
@@ -282,12 +289,14 @@ INSERT INTO `students` (`id_stud`, `fname`, `dob`, `sex`, `tel`) VALUES
 --
 
 DROP TABLE IF EXISTS `teachers`;
-CREATE TABLE `teachers` (
-  `id_teach` tinyint NOT NULL,
+CREATE TABLE IF NOT EXISTS `teachers` (
+  `id_teach` tinyint NOT NULL AUTO_INCREMENT,
   `fname` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `grade` tinyint DEFAULT NULL,
   `dos` date DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL
+  `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id_teach`),
+  UNIQUE KEY `email` (`email`)
 ) ;
 
 --
@@ -299,56 +308,8 @@ INSERT INTO `teachers` (`id_teach`, `fname`, `grade`, `dos`, `email`) VALUES
 (2, 'Martin', 2, '2021-10-20', 'martin@mygreta.fr'),
 (3, 'Saman', 2, '2021-03-11', 'saman@mygreta.fr'),
 (4, 'Lesly', 4, '1994-04-05', 'lesly@mygreta.fr'),
-(5, 'Olivier', 4, '2002-05-19', 'olivier@mygreta.fr');
-
---
--- Index pour les tables déchargées
---
-
---
--- Index pour la table `courses`
---
-ALTER TABLE `courses`
-  ADD PRIMARY KEY (`id_cur`),
-  ADD KEY `fk_courses_teachers` (`id_teach`);
-
---
--- Index pour la table `follow`
---
-ALTER TABLE `follow`
-  ADD PRIMARY KEY (`id_stud`,`id_cur`),
-  ADD KEY `fk_follow_courses` (`id_cur`);
-
---
--- Index pour la table `students`
---
-ALTER TABLE `students`
-  ADD PRIMARY KEY (`id_stud`),
-  ADD UNIQUE KEY `uq_students_tel` (`tel`),
-  ADD KEY `idx_students_fname` (`fname`);
-
---
--- Index pour la table `teachers`
---
-ALTER TABLE `teachers`
-  ADD PRIMARY KEY (`id_teach`),
-  ADD UNIQUE KEY `email` (`email`);
-
---
--- AUTO_INCREMENT pour les tables déchargées
---
-
---
--- AUTO_INCREMENT pour la table `students`
---
-ALTER TABLE `students`
-  MODIFY `id_stud` tinyint NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT pour la table `teachers`
---
-ALTER TABLE `teachers`
-  MODIFY `id_teach` tinyint NOT NULL AUTO_INCREMENT;
+(5, 'Olivier', 4, '2002-05-19', 'olivier@mygreta.fr'),
+(6, 'Soupramanien', 5, '2018-01-20', 'soupramanien@mygreta.fr');
 
 --
 -- Contraintes pour les tables déchargées

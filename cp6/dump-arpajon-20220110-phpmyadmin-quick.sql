@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : lun. 10 jan. 2022 à 18:14
+-- Généré le : lun. 10 jan. 2022 à 21:10
 -- Version du serveur :  8.0.22
 -- Version de PHP : 7.2.7
 
@@ -293,7 +293,8 @@ INSERT INTO `teachers` (`id_teach`, `fname`, `grade`, `dos`, `email`) VALUES
 (2, 'Martin', 2, '2021-10-20', 'martin@mygreta.fr'),
 (3, 'Saman', 2, '2021-03-11', 'saman@mygreta.fr'),
 (4, 'Lesly', 4, '1994-04-05', 'lesly@mygreta.fr'),
-(5, 'Olivier', 4, '2002-05-19', 'olivier@mygreta.fr');
+(5, 'Olivier', 4, '2002-05-19', 'olivier@mygreta.fr'),
+(6, 'Soupramanien', 5, '2018-01-20', 'soupramanien@mygreta.fr');
 
 --
 -- Index pour les tables déchargées

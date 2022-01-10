@@ -105,9 +105,13 @@ SET email = CONCAT(LOWER(fname), '@mygreta.fr')
 WHERE email IS NULL
 ;
 
--- Ajout d'Olivier
+-- Ajout d'Olivier et Soupramanien
 INSERT INTO arpajon.teachers(id_teach, fname, grade, dos, email)
 VALUES(5, 'Olivier', 4, '2002-05-19', 'olivier@mygreta.fr')
+;
+
+INSERT INTO arpajon.teachers(id_teach, fname, grade, dos, email)
+VALUES(6, 'Soupramanien', 5, '2018-01-20', 'soupramanien@mygreta.fr')
 ;
 
 -- Check de l'ajout des lignes

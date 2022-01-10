@@ -122,7 +122,7 @@ CREATE TABLE `teachers` (
   PRIMARY KEY (`id_teach`),
   UNIQUE KEY `email` (`email`),
   CONSTRAINT `teachers_chk_1` CHECK ((`grade` between 1 and 5))
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -131,7 +131,7 @@ CREATE TABLE `teachers` (
 
 LOCK TABLES `teachers` WRITE;
 /*!40000 ALTER TABLE `teachers` DISABLE KEYS */;
-INSERT INTO `teachers` VALUES (1,'Nadjet',3,'2020-09-15','nadjet@mygreta.fr'),(2,'Martin',2,'2021-10-20','martin@mygreta.fr'),(3,'Saman',2,'2021-03-11','saman@mygreta.fr'),(4,'Lesly',4,'1994-04-05','lesly@mygreta.fr'),(5,'Olivier',4,'2002-05-19','olivier@mygreta.fr');
+INSERT INTO `teachers` VALUES (1,'Nadjet',3,'2020-09-15','nadjet@mygreta.fr'),(2,'Martin',2,'2021-10-20','martin@mygreta.fr'),(3,'Saman',2,'2021-03-11','saman@mygreta.fr'),(4,'Lesly',4,'1994-04-05','lesly@mygreta.fr'),(5,'Olivier',4,'2002-05-19','olivier@mygreta.fr'),(6,'Soupramanien',5,'2018-01-20','soupramanien@mygreta.fr');
 /*!40000 ALTER TABLE `teachers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -152,4 +152,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-10 19:13:04
+-- Dump completed on 2022-01-10 22:09:12
