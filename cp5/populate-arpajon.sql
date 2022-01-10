@@ -84,7 +84,47 @@ VALUES
 	(4, 'Lesly', 4, '1994-04-05')
 ;
 
+-- Mise à jour des grades
+-- Nadjet = 3
+-- Martin et Saman = 2
+UPDATE arpajon.teachers
+SET grade = 3
+WHERE id_teach = 1
+;
+
+UPDATE arpajon.teachers
+SET grade = 2
+-- WHERE grade IS NULL
+-- WHERE id_teach = 2 OR id_teach = 3
+WHERE id_teach IN (2, 3)
+;
+
+-- Mise à jour de l'email des teachers
+UPDATE arpajon.teachers 
+SET email = CONCAT(LOWER(fname), '@mygreta.fr')
+WHERE email IS NULL
+;
+
+-- Ajout d'Olivier
+INSERT INTO arpajon.teachers(id_teach, fname, grade, dos, email)
+VALUES(5, 'Olivier', 4, '2002-05-19', 'olivier@mygreta.fr')
+;
+
 -- Check de l'ajout des lignes
 SELECT *
 FROM arpajon.teachers
 ;
+
+-- Ajout de lignes dans la table COURSES
+-- Import via la requête LOAD
+LOAD DATA 
+	INFILE '/apps/uwamp/www/arpajon/cp5/table-courses.csv' 
+    INTO TABLE arpajon.courses
+	FIELDS TERMINATED BY ';'
+    IGNORE 1 LINES
+;
+
+
+
+
+
