@@ -42,7 +42,8 @@ FROM courses
 -- Gestion des NULL
 SELECT id_cur, 
 	title, 
-    COALESCE(id_teach, 'N/A') AS Code_Prof
+    COALESCE(id_teach, 'N/A') AS Code_Prof, -- SQL standard
+    IFNULL(id_teach, 'N/A') AS Code_Prof2 -- MySQL
 FROM courses
 ;
 
@@ -67,3 +68,42 @@ FROM students
 WHERE fname LIKE '_a%e%'
 ;
 
+SELECT *
+FROM students
+WHERE fname LIKE '%a%e%'
+;
+
+-- Sans jointures
+SELECT *
+FROM courses
+; -- 11
+
+SELECT *
+FROM teachers
+; -- 6
+
+SELECT courses.title, teachers.fname
+FROM courses, teachers 
+; -- produit cartésien
+
+SELECT courses.title, teachers.fname
+FROM courses, teachers 
+WHERE courses.id_teach = teachers.id_teach -- condition de jointure
+; -- jointure (à l'ancienne)
+
+SELECT c.title, t.fname
+FROM courses c, teachers t 
+WHERE c.id_teach = t.id_teach
+; -- avec nom de corrélation
+
+SELECT c.title, t.fname
+FROM courses c JOIN teachers t ON t.id_teach = c.id_teach
+; -- jointure interne (moderne et fortement recommandée)
+
+SELECT c.title, t.fname
+FROM courses c JOIN teachers t USING(id_teach)
+; -- jointure interne (avec USING)
+
+SELECT c.title, t.fname
+FROM courses c NATURAL JOIN teachers t 
+; -- jointure naturelle (peu recommandée)
