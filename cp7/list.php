@@ -1,4 +1,10 @@
 <?php
+if (isset($_GET['db']) && !empty($_GET['db'])) {
+    $db = htmlspecialchars($_GET['db']);
+} else {
+    $db = '';
+}
+
 if (isset($_GET['table']) && !empty($_GET['table'])) {
     $table = htmlspecialchars($_GET['table']);
 } else {
@@ -48,14 +54,24 @@ if (isset($_GET['table']) && !empty($_GET['table'])) {
             );
 
             // Préparation et exécution de la requête
-            $sql = 'SELECT * FROM ' . $table;
+            $sql = "SELECT * FROM $db.$table";
             $res = $cnn->prepare($sql);
             $res->execute();
 
             // Lecture du résultat et création du tableau HTML
             $html = '<table class="table table-striped table-hover table-dark">';
-            $html .= '<tbody>';
+
+
+            // Affichage des en-têtes
+            $html .= '<thead><tr>';
+            for ($i = 0; $i < $res->columnCount(); $i++) {
+                $meta = $res->getColumnMeta($i);
+                $html .= '<th>' . strtoupper($meta['name']) . '</th>';
+            }
+            $html .= '</tr></thead>';
+
             // Affichage des données
+            $html .= '<tbody>';
             while ($row = $res->fetch()) {
                 $html .= '<tr>';
                 foreach ($row as $val) {

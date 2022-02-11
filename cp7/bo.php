@@ -25,66 +25,58 @@
         </ol>
     </nav>
 
-    <div id="bddChoice">
-        <select name="" id="bdd" class="form-control">
-            <option value="">--- Choisir une BDD ---</option>
-            <option value="arpajon" selected>ARPAJON</option>
-        </select>
-    </div>
-
-    <section id="tables" class="d-flex flex-wrap justify-content-around">
+    <div id="databases">
         <?php
         // Imports
         include_once 'constants.inc.php';
 
-        // Gestion des erreurs
+        // Gestion erreurs
         try {
-            // Connexion à la BDD
-            $dsn = 'mysql:host=%s;dbname=%s;charset=utf8';
+            // Connexion
             $cnn = new PDO(
-                sprintf($dsn, HOST, DB),
+                sprintf('mysql:host=%s;dbname=%s;charset=utf8', HOST, DB),
                 USER,
-                PASS
+                PASS,
+                array(
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+                )
             );
 
-            // Ajustement des attributs de la connexion
-            $cnn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $cnn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-            // var_dump($cnn);
-
-            // Préparation et excécution de la requête
-            $sql = 'SELECT table_schema, table_name, table_rows, create_time, engine
-                    FROM information_schema.tables
-                    WHERE table_schema = ?';
-            $params = array('arpajon');
+            // Préparation et exécution de la requête SQL
+            $sql = 'SELECT schema_name
+                        FROM information_schema.schemata
+                        WHERE schema_name NOT LIKE ?
+                        AND schema_name NOT IN (?,?,?)
+                        ORDER BY schema_name';
+            $params = array(
+                '%schema',
+                'mysql',
+                'phpmyadmin',
+                'sys'
+            );
             $res = $cnn->prepare($sql);
             $res->execute($params);
-            // var_dump($res);
+            // var_dump($res->fetchAll());
 
-            // Lecture de chaque ligne renvoyée par la requête : FECTH
-            $card = '<div class="card m-3" style="width: 18rem;">
-                            <img src="bo.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">%s</h5>
-                                <p class="card-text">Cette table a été créée le %s avec comme moteur %s et contient approximativement %d ligne(s).</p>
-                                <a href="list.php?table=%s" class="btn btn-info">Afficher les données</a>
-                            </div>
-                            </div>';
-            while ($row = $res->fetch()) {
-                // var_dump($row);
-                echo sprintf($card, $row['TABLE_NAME'], $row['CREATE_TIME'], $row['ENGINE'], $row['TABLE_ROWS'], $row['TABLE_NAME']);
+            // Parcours du résultat et gébération du SELECT
+            $html = '<select name="" id="bdd" class="form-control">
+            <option value="">--- Choisir une BDD ---</option>';
+            foreach ($res->fetchAll() as $val) {
+                $html .= '<option value="' . $val['SCHEMA_NAME'] . '">' . strtoupper($val['SCHEMA_NAME']) . '</option>';
             }
-
-            // Déconnexion
-            unset($cnn);
+            $html .= '</select>';
+            echo $html;
         } catch (PDOException $err) {
             echo '<p class="alert alert-danger">' . $err->getMessage() . '</p>';
         }
-
-
-
         ?>
+    </div>
+
+    <section id="tables" class="d-flex flex-wrap justify-content-around">
     </section>
+
+    <script src="bo.js"></script>
 </body>
 
 </html>
