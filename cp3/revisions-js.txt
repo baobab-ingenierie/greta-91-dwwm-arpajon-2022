@@ -1,0 +1,17 @@
+Function : 
+- spread operator
+- arguments
+- anonymes (events) + args
+
+Objets :
+- littéraux
+- class
+
+API :
+- D'n'D
+- Geolocation
+- Canvas
+- QuerySelector
+- AJAX avec XHR
+- LocalStorage
+- Promise + Fetch -> Saman
