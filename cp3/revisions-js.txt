@@ -1,17 +1,18 @@
 Function : 
-- spread operator
-- arguments
-- anonymes (events) + args
+x spread operator
+x arguments
+x anonymes (events) + args
 
 Objets :
 - littéraux
 - class
 
 API :
-- D'n'D
-- Geolocation
-- Canvas
 - QuerySelector
+- Web Storage
 - AJAX avec XHR
-- LocalStorage
+- Geolocation
+...
+- D'n'D
+- Canvas
 - Promise + Fetch -> Saman
