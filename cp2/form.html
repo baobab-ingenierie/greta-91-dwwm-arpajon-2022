@@ -17,7 +17,7 @@
         <button onclick="body.className='dark';">Dark mode</button>
     </nav>
 
-    <form action="form.php" method="post" name="candidate" enctype="multipart/form-data">
+    <form action="form.php" method="post" id="candidate" enctype="multipart/form-data">
         <fieldset>
             <legend>Données personnelles</legend>
             <div>
@@ -57,6 +57,7 @@
                     </optgroup>
                 </select>
             </div>
+            <div id="carte" style="height:50vh;background:#ff0"></div>
         </fieldset>
         <fieldset>
             <legend>Candidature</legend>
@@ -67,7 +68,8 @@
             </div>
             <div>
                 <label for="salary">Prétentions salariales </label>
-                <input type="range" name="salary" id="salary" min="24000" max="96000" step="1000" value="36000" onchange="document.getElementById('salVal').textContent=this.value;"><span id="salVal"></span>
+                <input type="range" name="salary" id="salary" min="24000" max="96000" step="1000" value="36000"
+                    onchange="document.getElementById('salVal').textContent=this.value;"><span id="salVal"></span>
             </div>
             <fieldset>
                 <legend>Postes souhaités</legend>
@@ -96,11 +98,11 @@
                 <label for="skill">Principale compétence </label>
                 <input type="text" name="skill" id="skill" list="suggest">
                 <datalist id="suggest">
-                    <option value="Prise de parole en public">
-                    <option value="Gestion de groupe">
-                    <option value="Management de projets">
-                    <option value="Self control">
-                    <option value="Rigueur et ponctualité">
+                    <option value="Prise de parole en public"></option>
+                    <option value="Gestion de groupe"></option>
+                    <option value="Management de projets"></option>
+                    <option value="Self control"></option>
+                    <option value="Rigueur et ponctualité"></option>
                 </datalist>
             </div>
             <div>
@@ -108,8 +110,9 @@
                 <input type="color" name="color" id="color">
             </div>
             <div>
-                <label for="cv">Dépôt du CV </label>   
-                <input type="file" id="cv" name="cv" accept="application/pdf, application/docx, application/odt" title="Taille maximale autorisée : 2Mo">
+                <label for="cv">Dépôt du CV </label>
+                <input type="file" id="cv" name="cv" accept="application/pdf, application/docx, application/odt"
+                    title="Taille maximale autorisée : 2Mo">
                 <input type="hidden" name="MAX_FILE_SIZE" value="2097152">
             </div>
             <div>
@@ -117,9 +120,11 @@
                 <textarea name="rem" id="rem" cols="30" rows="10"></textarea>
             </div>
         </fieldset>
-        <input type="submit">
+        <input type="submit" value="Stockage serveur">
+        <button id="save">Stockage local</button>
     </form>
 
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyB_WdX1bf0msgKWjbPgSTT9gfMTrVshMvY"></script>
     <script src="../cp3/functions.js"></script>
     <script src="../cp3/form.js"></script>
 </body>

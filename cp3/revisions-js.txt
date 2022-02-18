@@ -4,15 +4,15 @@ x arguments
 x anonymes (events) + args
 
 Objets :
-- littéraux
-- class
+x littéraux
+x class
 
 API :
-- QuerySelector
-- Web Storage
-- AJAX avec XHR
-- Geolocation
+x QuerySelector
+x Web Storage
+x AJAX Promise + Fetch
+x Geolocation
 ...
+- AJAX avec XHR
 - D'n'D
 - Canvas
-- Promise + Fetch -> Saman
