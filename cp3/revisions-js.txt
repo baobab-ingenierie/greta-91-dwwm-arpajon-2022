@@ -11,7 +11,7 @@ API :
 x QuerySelector
 x Web Storage
 x AJAX Promise + Fetch
-x Geolocation
+x Geolocation (API_KEY : AIzaSyB_WdX1bf0msgKWjbPgSTT9gfMTrVshMvY)
 ...
 - AJAX avec XHR
 - D'n'D
